@@ -28,7 +28,15 @@ class String
     score_guide.store('Q', 10)
     score_guide.store('Z', 10)
 
-    point_value = score_guide.fetch(self)
-    return point_value
+    result = 0
+
+    split_letters = self.split("")
+
+    split_letters.each() do |letter|
+      points = score_guide.fetch(letter)
+      result = points + result
+    end
+
+    return result
   end
 end
